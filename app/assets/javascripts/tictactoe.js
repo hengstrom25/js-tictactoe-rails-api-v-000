@@ -49,6 +49,7 @@ function showPrevGames() {
 }
 
 function loadGame(data) {
+<<<<<<< HEAD
     board = $('td');
     $.get(`/games/${data["id"]}`, function(game) {
 
@@ -67,6 +68,25 @@ function loadGame(data) {
     });
     setMessage('Game successfully loaded.');
 }
+=======
+  board = $('td');
+  $.get(`/games/${data['id']}`, function(game) {
+    currentGame = parseInt(['data']['id']);
+    state = game.data.attributes.state
+    turn = state.reduce((acc, val)) => {
+      if (val === 'X' || val === 'O') {
+        acc += 1
+      }
+      return acc
+      }, 0);
+      
+      for (let i=0, i < state.length; i++) {
+        board[i].innerHTML = state[i]
+      }
+    });
+    setMessage ('Game loaded')
+  }
+>>>>>>> 1342cbb8aea044a0a0f8724acba23f9ad84c24b2
 
 function clearGame() {
   resetBoard();
